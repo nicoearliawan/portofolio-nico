@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useCallback } from "react";
 import { Search, X } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 
@@ -20,15 +20,15 @@ export default function CommandPalette({ isOpen, onClose }) {
     cmd.name.toLowerCase().includes(search.toLowerCase())
   );
 
-  const scrollToSection = (id) => {
+  const scrollToSection = useCallback((id) => {
     const element = document.getElementById(id);
     if (element) {
       element.scrollIntoView({ behavior: "smooth" });
       onClose();
     }
-  };
+  }, [onClose]);
 
-  const handleKeyDown = (e) => {
+  const handleKeyDown = useCallback((e) => {
     if (e.key === "Escape") {
       onClose();
     } else if (e.key === "ArrowDown") {
@@ -45,18 +45,18 @@ export default function CommandPalette({ isOpen, onClose }) {
         filteredCommands[selectedIndex].action();
       }
     }
-  };
+  }, [filteredCommands, selectedIndex, onClose]);
 
   useEffect(() => {
     setSelectedIndex(0);
   }, [search]);
 
   useEffect(() => {
-    if (isOpen) {
-      document.addEventListener("keydown", handleKeyDown);
-      return () => document.removeEventListener("keydown", handleKeyDown);
-    }
-  }, [isOpen, onClose, selectedIndex, filteredCommands]);
+    if (!isOpen) return;
+
+    document.addEventListener("keydown", handleKeyDown);
+    return () => document.removeEventListener("keydown", handleKeyDown);
+  }, [isOpen, handleKeyDown]);
 
   if (!isOpen) return null;
 

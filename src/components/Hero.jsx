@@ -19,8 +19,7 @@ export default function Hero() {
           className="mb-6"
         >
           <img
-            src="https://cdn.discordapp.com/attachments/1360911585740193973/1503723759784300575/IMG_20260512_184052.jpg?ex=6a046362&is=6a0311e2&hm=d41615bd141d687ee6a820ced70ec4599a40b9c1de7150f9c7029ca61687bb8c&"
-            alt="Profile"
+            src="./assets/profile.jpg"
             className="w-80 h-80 rounded-full mx-auto border-4 border-zinc-800 shadow-xl object-cover"
           />
         </motion.div>

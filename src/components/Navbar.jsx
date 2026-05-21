@@ -26,15 +26,17 @@ export default function Navbar({ onOpenCommandPalette }) {
   }, []);
 
   useEffect(() => {
+    if (!showCommandPalette) return;
+
     const handleKeyDown = (e) => {
-      if ((e.metaKey || e.ctrlKey) && e.key === "k") {
+      if ((e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k") {
         e.preventDefault();
         onOpenCommandPalette();
       }
     };
     window.addEventListener("keydown", handleKeyDown);
     return () => window.removeEventListener("keydown", handleKeyDown);
-  }, [onOpenCommandPalette]);
+  }, [showCommandPalette, onOpenCommandPalette]);
 
   const toggleTheme = () => {
     const newTheme = isDark ? "light" : "dark";
