@@ -5,7 +5,7 @@ import Footer from "../components/Footer";
 
 const handleDownload = () => {
   const link = document.createElement("a");
-  link.href = "/resume.pdf"; // nanti ganti dengan file kamu
+  link.href = "/.pdf"; // nanti ganti dengan file kamu
   link.download = "Nico-Alvaro-Resume.pdf"; // nama file saat didownload
   document.body.appendChild(link);
   link.click();

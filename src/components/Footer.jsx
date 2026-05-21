@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
-import { ArrowUp, Github, Rss } from "lucide-react";
+import { ArrowUp, Github } from "lucide-react";
 import { useState, useEffect } from "react";
+import logoIcon from "../assets/iconFooter.png";
 
 export default function Footer() {
   const [showScrollTop, setShowScrollTop] = useState(false);
@@ -28,8 +29,12 @@ export default function Footer() {
         >
           {/* Logo */}
           <div className="flex items-center justify-center gap-3">
-            <div className="w-10 h-10 bg-blue-500 rounded-lg flex items-center justify-center text-white font-bold">
-              NA
+            <div className="w-12 h-12 overflow-hidden flex items-center justify-center  shadow-lg">
+              <img 
+                src={logoIcon} 
+                alt="Nico Alvaro Logo" 
+                className="w-full h-full object-cover"
+              />
             </div>
             <span className="text-xl font-semibold text-zinc-50">Nico Alvaro</span>
           </div>

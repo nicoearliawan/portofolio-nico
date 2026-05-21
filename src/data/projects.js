@@ -68,7 +68,7 @@ export const projects = [
     github: "https://github.com/nicoearliawan/profile-diri-flutter",
   }, {
     id: 6,
-    title: "Earthquake monitor",
+    title: "TerraQuake App",
     description: "Membuat web gempa bumi dengan mengambil publik API realtime earthquake",
     image: earthquakemonitor,
     tags: ["React", "Tailwind"],

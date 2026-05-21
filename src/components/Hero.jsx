@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import Badge from "./ui/Badge";
 import { Volume2 } from "lucide-react";
+import profileImage from "../assets/profile.png";
 
 export default function Hero() {
   const pronounceName = () => {
@@ -19,7 +20,8 @@ export default function Hero() {
           className="mb-6"
         >
           <img
-            src="./assets/profile.jpg"
+            src={profileImage}
+            alt="Nico Alvaro Dikara"
             className="w-80 h-80 rounded-full mx-auto border-4 border-zinc-800 shadow-xl object-cover"
           />
         </motion.div>
@@ -43,7 +45,7 @@ export default function Hero() {
             </button>
           </div>
 
-          <p className="text-xl text-zinc-400">Software Engineer</p>
+          <p className="text-xl text-zinc-400">Frontend Developer</p>
 
           <div className="flex items-center justify-center gap-2">
             <Badge variant="success">Open to Work</Badge>
