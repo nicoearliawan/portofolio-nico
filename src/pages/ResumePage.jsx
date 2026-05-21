@@ -2,11 +2,12 @@ import { motion } from "framer-motion";
 import { Download } from "lucide-react";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
+import cvPdf from "../assets/CV-Nico.pdf";
 
 const handleDownload = () => {
   const link = document.createElement("a");
-  link.href = "/.pdf"; // nanti ganti dengan file kamu
-  link.download = "Nico-Alvaro-Resume.pdf"; // nama file saat didownload
+  link.href = cvPdf; 
+  link.download = "CV-Nico-Alvaro-Dikara.pdf";
   document.body.appendChild(link);
   link.click();
   document.body.removeChild(link);
