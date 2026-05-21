@@ -31,7 +31,9 @@ export default function Navbar({ onOpenCommandPalette }) {
     const handleKeyDown = (e) => {
       if ((e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k") {
         e.preventDefault();
-        onOpenCommandPalette();
+        if (typeof onOpenCommandPalette === "function") {
+          onOpenCommandPalette();
+        }
       }
     };
     window.addEventListener("keydown", handleKeyDown);

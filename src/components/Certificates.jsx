@@ -1,10 +1,17 @@
+import { useState } from "react";
 import { motion } from "framer-motion";
-import { ArrowRight, Calendar, Award, ExternalLink } from "lucide-react";
+import { ArrowRight, Calendar, Award, ExternalLink, FileText, Image } from "lucide-react";
 import { certificates } from "../data/certificates";
 import Card from "./ui/Card";
 import Badge from "./ui/Badge";
+import PDFModal from "./ui/PDFModal";
+import ImageModal from "./ui/ImageModal";
 
 export default function Certificates() {
+  const [selectedPdf, setSelectedPdf] = useState(null);
+  const [selectedImage, setSelectedImage] = useState(null);
+  const [selectedTitle, setSelectedTitle] = useState("");
+
   const formatDate = (dateString) => {
     const date = new Date(dateString);
     return date.toLocaleDateString("en-US", {
@@ -12,6 +19,16 @@ export default function Certificates() {
       month: "short",
       day: "numeric",
     });
+  };
+
+  const handleOpenPdf = (pdf, title) => {
+    setSelectedPdf(pdf);
+    setSelectedTitle(title);
+  };
+
+  const handleOpenImage = (image, title) => {
+    setSelectedImage(image);
+    setSelectedTitle(title);
   };
 
   return (
@@ -79,6 +96,28 @@ export default function Certificates() {
                           <Calendar className="w-3 h-3" />
                           {formatDate(cert.date)}
                         </div>
+                        <button
+                          onClick={(e) => {
+                            e.stopPropagation();
+                            handleOpenImage(cert.image, cert.title);
+                          }}
+                          className="flex items-center gap-1 text-purple-400 hover:text-purple-300 transition-colors"
+                        >
+                          <Image className="w-3 h-3" />
+                          View Full Image
+                        </button>
+                        {cert.pdf && (
+                          <button
+                            onClick={(e) => {
+                              e.stopPropagation();
+                              handleOpenPdf(cert.pdf, cert.title);
+                            }}
+                            className="flex items-center gap-1 text-blue-400 hover:text-blue-300 transition-colors"
+                          >
+                            <FileText className="w-3 h-3" />
+                            View PDF
+                          </button>
+                        )}
                         {cert.credentialUrl && (
                           <a
                             href={cert.credentialUrl}
@@ -100,6 +139,20 @@ export default function Certificates() {
           </div>
         </motion.div>
       </div>
+
+      <PDFModal
+        isOpen={!!selectedPdf}
+        onClose={() => setSelectedPdf(null)}
+        pdfUrl={selectedPdf}
+        title={selectedTitle}
+      />
+
+      <ImageModal
+        isOpen={!!selectedImage}
+        onClose={() => setSelectedImage(null)}
+        imageUrl={selectedImage}
+        title={selectedTitle}
+      />
     </section>
   );
 }

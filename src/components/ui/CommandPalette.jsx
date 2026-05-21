@@ -21,10 +21,16 @@ export default function CommandPalette({ isOpen, onClose }) {
   );
 
   const scrollToSection = useCallback((id) => {
-    const element = document.getElementById(id);
-    if (element) {
-      element.scrollIntoView({ behavior: "smooth" });
-      onClose();
+    try {
+      const element = document.getElementById(id);
+      if (element) {
+        element.scrollIntoView({ behavior: "smooth" });
+        onClose();
+      } else {
+        console.warn(`Element with id "${id}" not found`);
+      }
+    } catch (error) {
+      console.error("Error scrolling to section:", error);
     }
   }, [onClose]);
 

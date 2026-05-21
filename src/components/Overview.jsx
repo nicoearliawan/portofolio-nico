@@ -23,8 +23,8 @@ export default function Overview() {
     {
       icon: <Globe className="w-4 h-4" />,
       label: "Website",
-      value: "nicoearliawan.vercel",
-      link: "https://nicoearliawan.vercel",
+      value: "nicoalvaro.vercel.app",
+      link: "https://nicoalvaro.vercel.app",
     },
   ];
 
