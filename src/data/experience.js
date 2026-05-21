@@ -1,0 +1,63 @@
+export const workExperience = [
+  {
+    id: 1,
+    company: "Tech Corp",
+    logo: "https://ui-avatars.com/api/?name=TC&background=3b82f6&color=fff",
+    position: "Senior Software Engineer",
+    type: "Full-time",
+    location: "Jakarta, Indonesia",
+    startDate: "Jan 2023",
+    endDate: "Present",
+    description: "Leading development of microservices architecture and mentoring junior developers",
+  },
+  {
+    id: 2,
+    company: "Startup Inc",
+    logo: "https://ui-avatars.com/api/?name=SI&background=10b981&color=fff",
+    position: "Full Stack Developer",
+    type: "Full-time",
+    location: "Bandung, Indonesia",
+    startDate: "Jun 2021",
+    endDate: "Dec 2022",
+    description: "Built and maintained multiple web applications using React and Node.js",
+  },
+  {
+    id: 3,
+    company: "Freelance",
+    logo: "https://ui-avatars.com/api/?name=FL&background=8b5cf6&color=fff",
+    position: "Web Developer",
+    type: "Freelance",
+    location: "Remote",
+    startDate: "Jan 2020",
+    endDate: "May 2021",
+    description: "Developed custom websites and web applications for various clients",
+  },
+];
+
+export const education = [
+  {
+    id: 1,
+    logo: "https://iconape.com/wp-content/png_logo_vector/sekolah-dasar-logo.png",
+    degree: "SDN Pakuan",
+    location: "Tajur, Kota Bogor",
+    startDate: "2015",
+    endDate: "2021",
+  },
+  {
+    id: 2,
+    logo: "https://smpn7bogor.sch.id/wp-content/uploads/2024/07/cropped-ico-3.png",
+    degree: "SMPN 7 Bogor",
+    location: "Paledang, Kota Bogor",
+    startDate: "2021",
+    endDate: "2024",
+  },
+  {
+    id: 3,
+    logo: "https://smkwikrama.sch.id/assets2/wikrama-logo.png",
+    degree: "SMK WIKRAMA Bogor",
+    institution: "Pengembangan Perangkat Lunak & Gim",
+    location: "Wangun, Kota Bogor",
+    startDate: "2024",
+    endDate: "Sekarang",
+  },
+];
